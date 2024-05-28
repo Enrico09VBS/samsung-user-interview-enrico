@@ -1,0 +1,28 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "io.ratpack:ratpack-gradle:2.0.0-rc-1"
+  }
+}
+
+apply plugin: "io.ratpack.ratpack-java"
+apply plugin: "idea"
+apply plugin: 'war'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'com.fasterxml.jackson.core:jackson-databind'
+  implementation 'org.springframework:spring-web:5.3.9'
+  implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+  implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
+  runtimeOnly 'mysql:mysql-connector-java:6.0.+'
+  runtimeOnly "org.slf4j:slf4j-simple:1.7.36"
+  providedCompile 'org.apache.tomcat:tomcat-catalina:7.0.47'
+}
+
+mainClassName = "my.app.Main"
